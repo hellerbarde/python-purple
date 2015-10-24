@@ -18,10 +18,8 @@
 #
 
 import getpass
-import sys, dl
+import sys, ctypes
 import time
-
-sys.setdlopenflags(dl.RTLD_NOW | dl.RTLD_GLOBAL)
 
 import purple
 
@@ -40,11 +38,11 @@ if __name__ == '__main__':
     core.purple_init()
 
     # Get username from user
-    sys.stdout.write("Enter GTalk account: ")
+    sys.stdout.write("Enter Skype account: ")
     username = sys.stdin.readline()[:-1]
 
     # Initialize protocol class
-    protocol = purple.Protocol('prpl-jabber')
+    protocol = purple.Protocol('prpl-skypeweb')
 
     # Creates new account inside libpurple
     account = purple.Account(username, protocol, core)
@@ -55,9 +53,6 @@ if __name__ == '__main__':
 
     # Set account protocol options
     info = {}
-    info['connect_server'] = 'talk.google.com'
-    info['port'] = '443'
-    info['old_ssl'] = True
     account.set_protocol_options(info)
 
     # Enable account (connects automatically)

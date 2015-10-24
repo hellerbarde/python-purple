@@ -19,9 +19,7 @@
 
 import etk
 import ecore
-import sys, dl
-
-sys.setdlopenflags(dl.RTLD_NOW | dl.RTLD_GLOBAL)
+import sys, ctypes
 
 import purple
 
